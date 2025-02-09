@@ -3,7 +3,7 @@ pipeline {
     environment {
         
         // MAIN Image Manager
-        DOCKER_HUB_REPOSITORY = "knoeurn"
+        DOCKER_HUB_REPOSITORY = "nangsreypich"
         DOCKER_HUB_IMAGE = "html_dev_ops_images"
         DOCKER_CREDENTIALS = "docker-hub-credentials"
         CONTAINER_NAME = "html_dev_ops"
@@ -25,13 +25,13 @@ pipeline {
                         echo "Checking out tag: ${params.TAG}"
                         checkout([$class: 'GitSCM',
                             branches: [[name: "refs/tags/${params.TAG}"]],
-                            userRemoteConfigs: [[url: 'https://github.com/krolnoeurn36/html_dev_ops.git']]
+                            userRemoteConfigs: [[url: 'https://github.com/nangsreypich/docker-jenkins.git']]
                         ])
                       } else {
                           echo "Checking out branch: ${params.BRANCH}"
                           checkout([$class: 'GitSCM',
                               branches: [[name: "${params.BRANCH}"]],
-                              userRemoteConfigs: [[url: 'https://github.com/krolnoeurn36/html_dev_ops.git']]
+                              userRemoteConfigs: [[url: 'https://github.com/nangsreypich/docker-jenkins.git']]
                           ])
                       }
 
